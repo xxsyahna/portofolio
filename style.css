@@ -10,7 +10,7 @@
 
 body.dark {
     --primary: #d46a6a;
-    --primary-light: #c0392b;
+    --primary-light:rgb(40, 30, 29);
     --dark: #1a0000;
     --light: #4d1a1a;
     --text: #f4f4f4;
@@ -442,6 +442,29 @@ body.dark .skills-list li {
 .card:hover {
   transform: translateY(-5px);
   box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+}
+
+.project-desc {
+    position: relative;
+}
+
+.project-desc .read-more-btn {
+    background: none;
+    border: none;
+    color: var(--primary);
+    font-weight: bold;
+    cursor: pointer;
+    padding: 0;
+    margin-top: 0.5rem;
+    display: inline-block;
+}
+
+.project-desc .read-more-btn:hover {
+    text-decoration: underline;
+}
+
+.hidden {
+    display: none;
 }
 
 
