@@ -7,31 +7,39 @@
     <link rel="stylesheet" href="style.css" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
 </head>
 
 <body>
     <button id="toggle-dark" class="dark-toggle">🌓</button>
 
     <header>
-        <div class="container">
+    <div class="container">
         <h1>Aisyah Nabila Nur Affifah</h1>
         <nav>
-            <ul>
+        <ul>
             <li><a href="#about">About</a></li>
             <li><a href="#education">Education</a></li>
             <li><a href="#experience">Experience</a></li>
             <li><a href="#skills">Skills</a></li>
-            <li><a href="#certificates">Licenses & certifications</a></li>
-            <li><a href="#projects">Project</a></li>
+            <li><a href="#certificates">Licenses & Certifications</a></li>
+            <li><a href="#projects">Projects</a></li>
             <li><a href="#contact">Contact</a></li>
-            </ul>
+        </ul>
         </nav>
-        </div>
+    </div>
     </header>
 
     <section class="hero" data-aos="fade-up">
         <div class="container center">
-        <img src="assets/profil.jpg" alt="Profil" class="profile-img">
+        <img
+    src="assets/profil.jpg"
+    alt="Profil"
+    class="profile-img"
+    data-aos="zoom-in"
+    data-aos-duration="1200"
+    />
         <h2>Halo! Saya <span class="highlight">Aisyah Nabila</span></h2>
         <p style="color: white;">Web Developer | UI/UX Enthusiast | Graphic Designer</p>
         </div>
@@ -40,7 +48,7 @@
     <section id="about" class="section" data-aos="fade-right">
         <div class="container">
         <h2>About</h2>
-        <p>Saya adalah mahasiswa semester lima di UPN Veteran Yogyakarta jurusan Informatika. Saya memiliki minat besar di bidang desain visual, terutama UI/UX, desain web, dan desain grafis. Saya percaya bahwa desain bukan hanya soal estetika, tetapi juga bagaimana menciptakan pengalaman yang menyenangkan dan intuitif bagi pengguna. Saya senang belajar teknologi baru dan berkolaborasi dalam tim kreatif.</p>
+        <p>Saya adalah mahasiswa semester lima di UPN Veteran Yogyakarta, jurusan Informatika. Saya memiliki minat yang kuat dalam bidang desain visual, khususnya UI/UX, desain web, dan desain grafis. Saya percaya bahwa desain tidak hanya soal estetika, tetapi juga menciptakan pengalaman yang intuitif dan menyenangkan bagi pengguna. Saya antusias dalam mempelajari teknologi baru dan senang berkolaborasi dalam tim kreatif.</p>
         </div>
     </section>
 
@@ -55,9 +63,9 @@
             </div>
         </div>
         <div class="education-item">
-            <img src="assets/sma.png" alt="Logo SMAN 1 Wonogiri" class="edu-logo" />
+            <img src="assets/sma.png" alt="Logo SMAN 1 Wuryantoro" class="edu-logo" />
             <div>
-            <h3>SMAN 1 Wonogiri</h3>
+            <h3>SMAN 1 Wuryantoro</h3>
             <p>(2020 – 2023)</p>
             </div>
         </div>
@@ -68,24 +76,37 @@
         <div class="container">
         <h2>Experience</h2>
         <ul>
-            <li><strong>Project-Based Virtual Intern : UI/UX Designer Nuri x Rakamin Academy</strong> – Remote (Juni 2025)</li>
-            <li><strong>Project-Based Virtual Intern : UX Researcher Telkom Digital Amoeba x Rakamin Academy</strong> – Remote (Mei 2025 - Juni 2025)</li>
+            <li><strong>Project-Based Virtual Intern: UI/UX Designer – Nuri x Rakamin Academy</strong> – Remote (Juni 2025)</li>
+            <li><strong>Project-Based Virtual Intern: UX Researcher – Telkom Digital Amoeba x Rakamin Academy</strong> – Remote (Mei – Juni 2025)</li>
         </ul>
         </div>
     </section>
 
     <section id="skills" class="section dark" data-aos="fade-left">
-        <div class="container">
-        <h2>Keahlian</h2>
+    <div class="container">
+        <h2>Skills</h2>
         <ul class="skills-list">
             <li>HTML, CSS, JavaScript</li>
             <li>Figma, Canva, Capcut</li>
             <li>UI/UX Design & Prototyping</li>
             <li>Responsive Web Design</li>
-            <li>Conduct Research, Qualitative & Quantitative Research</li>
-            <li>Basic React & Git</li>
+            <li>User Research (Kualitatif & Kuantitatif)</li>
+            <li>Git</li>
         </ul>
         </div>
+    </section>
+
+    <section id="tools" class="section" data-aos="fade-left">
+    <div class="container">
+    <h2>Tools & Tech Stack</h2>
+    <div class="tools-grid">
+        <div class="tool"><i class="fab fa-figma"></i><span>Figma</span></div>
+        <div class="tool"><i class="fas fa-code"></i><span>VS Code</span></div>
+        <div class="tool"><i class="fab fa-github"></i><span>GitHub</span></div>
+        <div class="tool"><i class="fas fa-photo-video"></i><span>Canva</span></div>
+        <div class="tool"><i class="fas fa-scissors"></i><span>CapCut</span></div>
+    </div>
+    </div>
     </section>
 
     <section id="certificates" class="section" data-aos="fade-left">
@@ -120,21 +141,31 @@
         <div class="container">
         <h2>Projects</h2>
         <div class="projects">
+
             <a href="https://xxsyahna.github.io/gallery/" target="_blank" class="card">
             <h3>Web Virtual Gallery</h3>
             <img src="assets/gallery.png" alt="Galeri" class="cert-img" />
-            <p class="project-desc">Web Virtual Gallery adalah website interaktif yang menampilkan karya seni atau portofolio digital dalam bentuk ruang pamer daring yang imersif. Website ini dilengkapi dengan dua mode tampilan, yaitu mode siang (light mode) dengan latar cerah dan kesan bersih, serta mode malam (dark mode) dengan latar gelap yang memberikan nuansa elegan dan nyaman di mata. Pengguna dapat bebas beralih antar mode sesuai preferensi tampilan mereka. Selain itu, galeri ini juga dilengkapi musik pengiring bertema santai atau ambient yang diputar secara otomatis (dengan kontrol play/pause dan volume), untuk menciptakan suasana yang tenang dan mendalam saat menjelajahi karya. Kombinasi visual dan audio ini dirancang untuk memberikan pengalaman yang lebih personal dan artistik, menjadikan galeri terasa hidup dan menyenangkan untuk dijelajahi.
-            </p></a>
+            <p class="project-desc">
+                Web Virtual Gallery adalah situs web interaktif yang menampilkan karya seni atau portofolio digital dalam format ruang pamer virtual yang imersif. Website ini menyediakan dua mode tampilan: mode siang (light mode) dengan latar cerah dan bersih, serta mode malam (dark mode) dengan nuansa gelap yang elegan dan nyaman di mata. Pengguna dapat beralih antar mode sesuai preferensi tampilan. Selain itu, galeri ini dilengkapi dengan musik latar bertema santai atau ambient yang diputar secara otomatis, lengkap dengan kontrol play/pause dan volume. Kombinasi visual dan audio ini dirancang untuk menciptakan suasana tenang, personal, dan artistik saat menjelajahi karya, sehingga pengalaman pengguna menjadi lebih mendalam dan menyenangkan.
+            </p>
+            </a>
+
             <a href="https://xxsyahna.github.io/wonogiri/" target="_blank" class="card">
             <h3>Web Daerah Wonogiri</h3>
             <img src="assets/Wonogiri.png" alt="Wonogiri" class="cert-img" />
-            <p>Website Wonogiri adalah sebuah platform informatif yang dirancang untuk memperkenalkan potensi daerah Wonogiri secara menyeluruh. Website ini mencakup berbagai informasi penting seperti sejarah dan profil daerah, yang memberikan gambaran umum mengenai latar belakang dan karakteristik Wonogiri. Selain itu, terdapat menu khusus untuk mengeksplorasi destinasi wisata, budaya lokal, kuliner khas, serta produk-produk unggulan daerah yang dapat menjadi daya tarik ekonomi. Untuk memperkaya pengalaman pengguna, tersedia pula galeri foto yang menampilkan keindahan alam, kegiatan budaya, serta hasil karya masyarakat Wonogiri. Website ini bertujuan sebagai media promosi daerah yang edukatif dan menarik, serta mendukung pelestarian dan pengembangan potensi lokal.</p>
+            <p>
+                Website Wonogiri adalah platform informatif yang dirancang untuk memperkenalkan potensi daerah Wonogiri secara menyeluruh. Situs ini mencakup berbagai informasi penting seperti sejarah dan profil daerah, serta menampilkan destinasi wisata, budaya lokal, kuliner khas, dan produk unggulan daerah. Untuk memperkaya pengalaman pengguna, tersedia galeri foto yang menampilkan keindahan alam, aktivitas budaya, dan hasil karya masyarakat lokal. Website ini bertujuan menjadi media promosi daerah yang edukatif dan menarik, sekaligus mendukung pelestarian serta pengembangan potensi lokal.
+            </p>
             </a>
+
             <a href="https://www.figma.com/proto/uzGrj4OX8KdbnV3ZkleIXy/Basic-Course---4.2-Landing-Page-Design-Challenge--Copy-?node-id=9017-769&p=f&t=MLzP4i2DFTSbeZpo-1&scaling=contain&content-scaling=responsive&page-id=2009%3A1322" target="_blank" class="card">
             <h3>Landing Page Samarasa</h3>
             <img src="assets/samarasa.png" alt="samarasa" class="cert-img" />
-            <p>Samarasa adalah platform edukasi interaktif yang dirancang untuk meningkatkan pemahaman dan kepedulian terhadap isu kesetaraan gender. Melalui akses ke artikel, video, dan infografis yang informatif dan mudah dipahami, pengguna dapat belajar secara menyenangkan. Samarasa juga menghadirkan cerita nyata dan testimoni inspiratif dari individu maupun komunitas yang memperjuangkan kesetaraan. Tersedia forum komunitas yang aman dan inklusif sebagai ruang berbagi pengalaman dan berdiskusi. Fitur kalender acara menampilkan jadwal event edukatif seperti webinar, workshop, dan diskusi publik. Pengguna dapat terlibat langsung dalam aksi kampanye digital seperti petisi dan gerakan media sosial, serta mengakses direktori layanan dukungan yang mencakup bantuan hukum, psikolog, dan shelter aman. Samarasa juga membuka peluang kolaborasi dengan komunitas atau organisasi untuk mempublikasikan kegiatan dan memperkuat gerakan sosial bersama.</p>
+            <p>
+                Samarasa adalah platform edukasi interaktif yang bertujuan meningkatkan pemahaman dan kepedulian terhadap isu kesetaraan gender. Melalui akses ke artikel, video, dan infografis yang informatif serta mudah dipahami, pengguna dapat belajar dengan cara yang menyenangkan. Platform ini juga menyajikan kisah nyata dan testimoni inspiratif dari individu maupun komunitas yang memperjuangkan kesetaraan. Tersedia forum komunitas yang aman dan inklusif sebagai ruang berbagi dan diskusi. Fitur kalender acara menampilkan jadwal kegiatan edukatif seperti webinar, workshop, dan diskusi publik. Pengguna juga dapat ikut serta dalam kampanye digital, serta mengakses direktori layanan dukungan seperti bantuan hukum, psikolog, dan shelter aman. Samarasa membuka ruang kolaborasi bersama komunitas dan organisasi demi memperkuat gerakan sosial secara kolektif.
+            </p>
             </a>
+
         </div>
         </div>
     </section>
@@ -144,15 +175,15 @@
         <h2>Contact</h2>
         <p>Email: <a href="mailto:aisyahnabilana@gmail.com">aisyahnabilana@gmail.com</a></p>
         <p>LinkedIn: <a href="https://linkedin.com/in/aisyah-nabila-nur-affifah" target="_blank">linkedin.com/in/aisyah-nabila-nur-affifah</a></p>
-        <p><a href="CV.pdf" download class="btn-download">📄 Download CV</a></p>
+        <p><a href="assets/CV.pdf" download class="btn-download">📄 Download CV</a></p>
         </div>
     </section>
 
     <button onclick="window.scrollTo({ top: 0, behavior: 'smooth' })" class="back-to-top">↑</button>
 
     <footer>
-        <div class="container">
-        <p style="color: white;"> © 2025 Aisyah Nabila Nur Affifah ✨ </p>
+        <div class="container center">
+        <p style="color: white;">© 2025 Aisyah Nabila Nur Affifah ✨</p>
         </div>
     </footer>
 

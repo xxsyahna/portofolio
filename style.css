@@ -1,4 +1,6 @@
-/* RESET & VARIABEL */
+/* =====================================================
+   1. ROOT & BASE STYLES
+===================================================== */
 :root {
     --primary: #800000;
     --primary-light: #a94442;
@@ -6,32 +8,38 @@
     --light: #fdf1f1;
     --text: #2e2e2e;
     --bg: #ffffff;
+    --card-bg: #ffffff;
 }
 
 body.dark {
     --primary: #d46a6a;
-    --primary-light:rgb(40, 30, 29);
+    --primary-light: rgb(40, 30, 29);
     --dark: #1a0000;
     --light: #4d1a1a;
     --text: #f4f4f4;
-    --bg: #140000;
+    --bg: #1a0e0e;
+    --card-bg: #2c1414;
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
-    line-height: 1.6;
+    font-family: 'Inter', 'Poppins', sans-serif;
+    font-size: 16px;
+    letter-spacing: 0.3px;
     background-color: var(--bg);
     color: var(--text);
-    transition: 0.3s ease-in-out;
+    line-height: 1.6;
 }
 
-/* TEXT STYLING */
+/* =====================================================
+   2. TYPOGRAPHY & TEXT HELPERS
+===================================================== */
 p {
     font-size: 16px;
     line-height: 1.8;
@@ -41,36 +49,26 @@ p {
 
 .section p {
     font-size: 17px;
-    line-height: 1.8;
-    color: var(--text);
     max-width: 700px;
 }
 
-/* Tambahan kelas warna teks */
-p.black-text {
-    color: #000;
-}
+p.black-text { color: #000; }
+p.white-text { color: #fff; }
+p.auto-dark { color: var(--text); }
 
-p.white-text {
-    color: #fff;
-}
-
-p.auto-dark {
-    color: var(--text);
-}
-
-/* CONTAINER */
+/* =====================================================
+   3. LAYOUT: CONTAINER, HEADER, NAV
+===================================================== */
 .container {
     max-width: 960px;
     margin: auto;
     padding: 20px;
+    text-align: justify;
+    line-height: 1.6;
 }
 
-.center {
-    text-align: center;
-}
+.center { text-align: center; }
 
-/* NAVIGATION */
 header {
     background: var(--dark);
     color: white;
@@ -96,29 +94,49 @@ nav a {
     color: white;
     text-decoration: none;
     font-weight: bold;
-    transition: 0.2s;
+    position: relative;
+    display: inline-block;
+    padding: 8px 0;
+    transition: color 0.3s ease;
+}
+
+nav a:before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--primary);
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
 }
 
 nav a:hover {
-    text-decoration: underline;
     color: var(--primary);
 }
 
-/* HERO */
+nav a:hover:before {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+/* =====================================================
+   4. HERO SECTION
+===================================================== */
 .hero {
-    background: var(--primary);
+    background: linear-gradient(120deg, var(--primary), var(--primary-light));
     color: white;
-    padding: 60px 20px;
+    padding: 80px 20px;
     text-align: center;
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.05);
 }
 
-.hero h2 {
-    font-size: 32px;
-}
-
-.highlight {
-    color: #ffeb3b;
-}
+.hero h2 { font-size: 32px; }
+.highlight { color: #ffeb3b; }
 
 .profile-img {
     width: 140px;
@@ -129,22 +147,21 @@ nav a:hover {
     border: 4px solid white;
 }
 
-/* SECTIONS */
+/* =====================================================
+   5. SECTIONS: SKILLS, PROJECTS, EDUCATION, ETC
+===================================================== */
 .section {
     padding: 60px 20px;
 }
-
 .section.dark {
     background-color: var(--light);
 }
-
 .section h2 {
     font-size: 28px;
     margin-bottom: 20px;
     color: var(--primary);
 }
 
-/* PROJECTS */
 .projects {
     display: flex;
     flex-wrap: wrap;
@@ -152,52 +169,50 @@ nav a:hover {
 }
 
 .card {
-    background-color: white;
-    border-radius: 12px;
-    box-shadow: 0 6px 12px rgba(0,0,0,0.08);
-    padding: 20px;
+    background-color: var(--card-bg);
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+    border: 1px solid #eaeaea;
     flex: 1 1 45%;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    color: inherit;
+    text-decoration: none;
+    perspective: 1000px;
 }
 
 .card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.15);
 }
 
-/* FORM */
-form {
-    margin-top: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
 }
-
-form input,
-form textarea {
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    font-size: 16px;
-    background: #fff;
+.card:hover .card-inner {
+    transform: rotateY(180deg);
 }
-
-form button {
-    padding: 12px;
-    background-color: var(--primary);
+.card-front, .card-back {
+    backface-visibility: hidden;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+.card-back {
+    background-color: #333;
     color: white;
-    border: none;
-    border-radius: 6px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+    transform: rotateY(180deg);
 }
 
-form button:hover {
-    background-color: var(--primary-light);
+body.dark .card {
+    background-color: var(--card-bg);
+    color: #fefefe;
+    border: 1px solid #5c1a1a;
 }
 
-/* SKILLS LIST */
 .skills-list {
     list-style: none;
     padding-left: 0;
@@ -205,7 +220,6 @@ form button:hover {
     grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
     gap: 12px;
 }
-
 .skills-list li {
     background: #fff;
     padding: 10px 15px;
@@ -214,16 +228,195 @@ form button:hover {
     font-weight: 500;
     box-shadow: 0 2px 6px rgba(0,0,0,0.05);
 }
-
-/* FOOTER */
-footer {
-    background-color: var(--dark);
-    color: white;
-    text-align: center;
-    padding: 20px 0;
+body.dark .skills-list li {
+    background-color: #3a1a1a;
+    color: #ffffff;
+    border-left-color: var(--primary-light);
 }
 
-/* DARK MODE TOGGLE */
+/* =====================================================
+   6. SKILL BARS & PROGRESS
+===================================================== */
+.skill-bar {
+    height: 10px;
+    width: 100%;
+    background-color: #e0e0e0;
+    border-radius: 5px;
+    overflow: hidden;
+}
+.skill-bar .progress {
+    height: 100%;
+    background-color: var(--primary);
+    border-radius: 5px;
+    transition: width 1s ease;
+}
+.skill-bar[data-progress="80"] .progress { width: 80%; }
+.skill-bar[data-progress="60"] .progress { width: 60%; }
+
+.skills-section .skill {
+    margin-bottom: 1.5rem;
+}
+.skill label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+.progress {
+    background: #ddd;
+    border-radius: 6px;
+    overflow: hidden;
+    height: 12px;
+}
+.bar {
+    background: var(--primary);
+    height: 100%;
+    width: 0;
+    transition: width 1.2s ease-out;
+    border-radius: 6px;
+}
+body.dark .progress { background: #522; }
+body.dark .bar { background: var(--primary-light); }
+
+/* =====================================================
+   7. FORMS, BUTTONS & DOWNLOAD
+===================================================== */
+form {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+form input, form textarea {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+    background: #fff;
+}
+form button {
+    padding: 12px;
+    background: linear-gradient(135deg, var(--primary), var(--primary-light));
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+}
+form button:hover {
+    background: linear-gradient(135deg, var(--primary-light), var(--primary));
+}
+
+.btn-download {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.75rem 1.5rem;
+    background: linear-gradient(135deg, var(--primary), var(--primary-light));
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+}
+.btn-download:hover {
+    background: linear-gradient(135deg, var(--primary-light), var(--primary));
+    box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+}
+
+/* =====================================================
+   8. EDUCATION & CERTIFICATIONS
+===================================================== */
+.education-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+.edu-logo {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    margin-right: 15px;
+}
+.cert-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+}
+.cert-card {
+    background-color: var(--card-bg, #fff);
+    padding: 1rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    text-align: center;
+}
+.cert-card:hover {
+    transform: translateY(-5px);
+}
+.cert-img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+}
+.cert-card h3 {
+    font-size: 1rem;
+    margin-bottom: 0.25rem;
+}
+.cert-card p {
+    font-size: 0.9rem;
+    color: gray;
+}
+
+/* =====================================================
+   9. LIGHTBOX, READ MORE, MISC
+===================================================== */
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 100;
+    padding-top: 60px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.8);
+}
+.lightbox-content {
+    display: block;
+    margin: auto;
+    max-width: 80%;
+}
+.close-lightbox {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 40px;
+    color: white;
+    cursor: pointer;
+}
+
+.project-desc {
+    position: relative;
+}
+.project-desc .read-more-btn {
+    background: none;
+    border: none;
+    color: var(--primary);
+    font-weight: bold;
+    cursor: pointer;
+    padding: 0;
+    margin-top: 0.5rem;
+    display: inline-block;
+}
+.project-desc .read-more-btn:hover {
+    text-decoration: underline;
+}
+
+.hidden { display: none; }
+
+/* =====================================================
+   10. TOGGLES, FOOTER, RESPONSIVE
+===================================================== */
 .dark-toggle {
     position: fixed;
     top: 10px;
@@ -238,7 +431,6 @@ footer {
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
-/* BACK TO TOP */
 .back-to-top {
     position: fixed;
     bottom: 20px;
@@ -250,222 +442,232 @@ footer {
     border-radius: 50%;
     font-size: 20px;
     cursor: pointer;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     display: none;
-    transition: background-color 0.3s;
 }
-
 .back-to-top:hover {
     background-color: var(--primary-light);
 }
 
-/* RESPONSIVE */
-@media (max-width: 768px) {
-    .projects {
-    flex-direction: column;
-    }
-
-    .card {
-    flex: 1 1 100%;
-    }
-
-    nav ul {
-    flex-direction: column;
-    gap: 10px;
-    }
-}
-
-/* DARK MODE FIXES */
-body.dark .section.dark {
-    background-color: #330000;
-    color: #ffffff;
-}
-
-body.dark .section.dark h2,
-body.dark .section.dark p,
-body.dark .section.dark li {
-    color: #ffffff;
-}
-
-body.dark .card {
-    background-color: #441111;
-    color: #fefefe;
-    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.05);
-}
-
-body.dark .skills-list li {
-    background-color: #5c1a1a;
-    color: #ffffff;
-    border-left-color: var(--primary-light);
-    }
-
-.btn-download {
-    display: inline-block;
-    margin-top: 1rem;
-    padding: 0.75rem 1.5rem;
-    background-color: var(--primary);
+footer {
+    background-color: var(--dark);
     color: white;
-    text-decoration: none;
-    border-radius: 8px;
-    font-weight: 600;
-    transition: background-color 0.3s ease;
+    text-align: center;
+    padding: 20px 0;
 }
 
-.btn-download:hover {
-    background-color: var(--primary-light);
+/* =====================================================
+   11. RESPONSIVE
+===================================================== */
+@media (max-width: 768px) {
+    .projects { flex-direction: column; }
+    .card { flex: 1 1 100%; }
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .education-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
 }
 
-.education-item {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-bottom: 1.5rem;
+/* =====================================================
+   12. SCROLL ANIMATIONS
+===================================================== */
+[data-animate] {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s ease;
+}
+[data-animate].in-view {
+    opacity: 1;
+    transform: none;
 }
 
-.edu-logo {
-    width: 50px;
-    height: 50px;
-    object-fit: contain;
+/* =====================================================
+   13. GLASSMORPHIC CARD
+===================================================== */
+.card {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+body.dark .card {
+    background: rgba(60, 20, 20, 0.2);
+    backdrop-filter: blur(10px);
 }
 
-.cert-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+/* =====================================================
+   14. TOOLTIP ON DARK TOGGLE
+===================================================== */
+.dark-toggle {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    background: #fcd34d;
+    border: none;
+    border-radius: 50%;
+    font-size: 20px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    z-index: 99;
+}
+.dark-toggle::after {
+    content: 'Toggle Theme';
+    position: absolute;
+    top: 50%;
+    left: -140%;
+    background: var(--dark);
+    color: white;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    white-space: nowrap;
+    transform: translateY(-50%);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+.dark-toggle:hover::after {
+    opacity: 1;
+}
+
+/* =====================================================
+   15. RIPPLE EFFECT ON BUTTONS
+===================================================== */
+.btn-download,
+form button {
+    position: relative;
+    overflow: hidden;
+}
+.btn-download::after,
+form button::after {
+    content: '';
+    position: absolute;
+    background: rgba(255,255,255,0.4);
+    border-radius: 50%;
+    transform: scale(0);
+    animation: ripple 0.6s linear;
+    pointer-events: none;
+}
+.btn-download:active::after,
+form button:active::after {
+    top: 50%;
+    left: 50%;
+    width: 200px;
+    height: 200px;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+@keyframes ripple {
+    to {
+        transform: translate(-50%, -50%) scale(1.5);
+        opacity: 0;
+    }
+}
+
+/* =====================================================
+   16. SMOOTH SCROLL
+===================================================== */
+html {
+    scroll-behavior: smooth;
+}
+
+.tools-grid {
+  display: flex;
+  flex-wrap: wrap;
   gap: 1.5rem;
+  justify-content: center;
+  align-items: center;
   margin-top: 1rem;
 }
 
-.cert-card {
-  background-color: var(--card-bg, #fff);
-  padding: 1rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  text-align: center;
-  transition: transform 0.3s ease;
-}
-
-.cert-card:hover {
-  transform: translateY(-5px);
-}
-
-.cert-img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 8px;
-  margin-bottom: 0.5rem;
-}
-
-.cert-card h3 {
-  font-size: 1rem;
-  margin-bottom: 0.25rem;
-}
-
-.cert-card p {
-  font-size: 0.9rem;
-  color: gray;
-}
-
-.edu-logo {
-  width: 60px;
-  margin-right: 15px;
-  vertical-align: middle;
-}
-.education-item {
+.tool {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  margin-bottom: 20px;
+  font-size: 1rem;
+  color: var(--text-color, #333);
 }
 
-.cert-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-}
-.cert-card {
-  background: #f4f4f4;
-  padding: 15px;
-  border-radius: 10px;
-  text-align: center;
-}
-.cert-img {
-  width: 100%;
-  max-height: 150px;
-  object-fit: contain;
-  cursor: pointer;
-  border-radius: 8px;
+.tool i {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    color: #e74c3c;
 }
 
-/* Lightbox Style */
-.lightbox {
-  display: none;
-  position: fixed;
-  z-index: 100;
-  padding-top: 60px;
-  left: 0; top: 0;
-  width: 100%; height: 100%;
-  overflow: auto;
-  background-color: rgba(0,0,0,0.8);
-}
-.lightbox-content {
-  display: block;
-  margin: auto;
-  max-width: 80%;
-}
-.close-lightbox {
-  position: absolute;
-  top: 20px;
-  right: 30px;
-  font-size: 40px;
-  color: white;
-  cursor: pointer;
+body.dark .tool {
+  color: #f0f0f0; /* teks jadi lebih terang */
 }
 
-/* Responsive Navigation */
-@media (max-width: 768px) {
+body.dark .tool i {
+  color: #ff6b6b; /* merah terang untuk dark mode */
+}
+
+/* =====================================================
+17. PROFIL
+===================================================== */
+    .profile-img {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    border: 4px solid #fff;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .profile-img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px #ff6f61;
+    }
+
+/* =====================================================
+18. TAMPILAN RESPONSIF
+===================================================== */  
+    @media (max-width: 768px) {
+  header .container, .section .container {
+    padding: 1rem;
+    flex-direction: column;
+    text-align: center;
+  }
+
   nav ul {
     flex-direction: column;
+    gap: 0.5rem;
   }
-  .education-item {
+
+  .profile-img {
+    width: 120px;
+    height: 120px;
+  }
+
+  .skills-list li {
+    font-size: 0.95rem;
+  }
+
+  .cert-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .projects .card {
     flex-direction: column;
-    align-items: flex-start;
+    text-align: center;
+  }
+
+  .tool {
+    font-size: 0.9rem;
+  }
+
+  .back-to-top {
+    bottom: 1rem;
+    right: 1rem;
+    font-size: 1.2rem;
+  }
+
+  .lang-toggle {
+    top: 1rem;
+    right: 1rem;
   }
 }
-
-.card {
-  text-decoration: none;
-  color: inherit;
-  background-color: #f4f4f4;
-  padding: 20px;
-  border-radius: 12px;
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
-}
-
-.project-desc {
-    position: relative;
-}
-
-.project-desc .read-more-btn {
-    background: none;
-    border: none;
-    color: var(--primary);
-    font-weight: bold;
-    cursor: pointer;
-    padding: 0;
-    margin-top: 0.5rem;
-    display: inline-block;
-}
-
-.project-desc .read-more-btn:hover {
-    text-decoration: underline;
-}
-
-.hidden {
-    display: none;
-}
-
-
-
